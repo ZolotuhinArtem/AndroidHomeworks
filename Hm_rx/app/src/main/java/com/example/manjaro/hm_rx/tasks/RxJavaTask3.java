@@ -23,8 +23,8 @@ public class RxJavaTask3 {
      */
     @NonNull
     public static Observable<Integer> sum(@NonNull Observable<Integer> observable) {
-        return MathObservable.sumInteger(observable)
-                .compose(new SimpleTransformer<>());
+        return observable.compose(new SimpleTransformer<>())
+                .reduce((x, y) -> x + y);
     }
 
 }
